@@ -35,7 +35,7 @@ const Hero = () => {
     };
 
   return (
-    <div className='pt-[60px] md:pt-[80px] w-screen h-screen font-overpass '>
+    <div className='pt-[60px] md:pt-[80px] w-screen h-screen font-overpass overflow-hidden'>
         <Slider {...settings}>
             {banners.map((banner) =>(
                 <div className='w-full h-screen md:h-[90vh] bg-black relative'>
