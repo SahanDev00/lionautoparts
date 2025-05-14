@@ -6,6 +6,12 @@ import Footer from "./components/shared/Footer";
 import Store from "./pages/store/Store";
 import BrandProducts from "./components/store/BrandProducts";
 import SearchProducts from "./components/store/SearchProducts";
+import About from "./pages/about/About";
+import Contact from "./pages/Contact/Contact";
+import SignUpPage from "./pages/Account/SignUpPage";
+import LoginPage from "./pages/Account/LoginPage";
+import MyAccountPage from "./pages/Account/MyAccountPage";
+import CartIndex from "./components/Cart/CartIndex";
 
 function App() {
   return (
@@ -18,6 +24,12 @@ function App() {
             <Route path="/store" index element={<Store />} />
             <Route path="/brands/:BrandID" index element={<BrandProducts />} />
             <Route path="/search/:ModelID/:BrandID/:YearID" index element={<SearchProducts />} />
+            <Route path="/about" index element={<About />} />
+            <Route path="/contact" index element={<Contact />} />
+            <Route path="/sign-up" index element={<SignUpPage />} />
+            <Route path="/login" index element={<LoginPage />} />
+            <Route path="/account" index element={<MyAccountPage />} />
+            <Route path="/cart" index element={<CartIndex />} />
           </Routes>
           <Footer />
         </Router>

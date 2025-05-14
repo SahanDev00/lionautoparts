@@ -11,7 +11,7 @@ const CTA = () => {
         <span className="text-yellow-400 font-semibold"> Get the performance you crave.</span>
       </p>
       <a
-        href="/shop"
+        href="/store"
         className="inline-block bg-amber-600 text-white font-bold py-3 px-6 rounded-full hover:bg-amber-500 transition duration-300"
       >
         Shop Now
