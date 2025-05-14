@@ -44,25 +44,25 @@ const Navbar = () => {
     
 
   return (
-    <div className='w-full h-[60px] md:h-[80px] fixed z-40 bg-blue-900'>
+    <div className='w-full h-[60px] md:h-[80px] fixed z-40 bg-white backdrop-blur-sm'>
         <div className='w-[90%] lg:w-[70%] hidden md:flex mx-auto h-full items-center justify-between'>
             <div className='w-[400px] h-full'>
                 <img src={logo} className='w-[80px] p-2 h-full rounded-full cursor-pointer' alt="" />
             </div>
             <div className='w-full h-full'>
                 <div className='w-full h-[45px] flex items-center justify-end gap-4'>
-                    <FaUser className='text-white size-5 cursor-pointer hover:text-orange-400' />
-                    <FaCartShopping className='text-white size-5 cursor-pointer hover:text-orange-400' />
+                    <FaUser className='size-5 cursor-pointer hover:text-orange-400' />
+                    <FaCartShopping className='size-5 cursor-pointer hover:text-orange-400' />
                 </div>
                 <div className='w-full h-[30px] flex items-center justify-end gap-16'>
                     <Link to='/' className='h-full'>
-                        <p className={`font-overpass h-full cursor-pointer hover:text-orange-400 ${isActive('/') ? 'text-orange-600 ' : 'text-white'}`}>Home</p>
+                        <p className={`font-overpass h-full cursor-pointer hover:text-orange-400 ${isActive('/') ? 'text-orange-600 ' : ''}`}>Home</p>
                     </Link>
                     <Link to='/store' className=' h-full'>
-                        <p className={`font-overpass cursor-pointer hover:text-orange-400 ${isActive('/store') ? 'text-orange-600' : 'text-white'}`}>Store</p>
+                        <p className={`font-overpass cursor-pointer hover:text-orange-400 ${isActive('/store') ? 'text-orange-600' : ''}`}>Store</p>
                     </Link>
                     <div className='group relative h-full'>
-                        <p className='text-white font-overpass cursor-pointer hover:text-orange-400 flex items-center gap-2 group-hover:text-orange-600'>Brands <IoIosArrowDown className='group-hover:rotate-180 duration-300' /></p>
+                        <p className='font-overpass cursor-pointer hover:text-orange-400 flex items-center gap-2 group-hover:text-orange-600'>Brands <IoIosArrowDown className='group-hover:rotate-180 duration-300' /></p>
                         <div className='absolute border-orange-500 group-hover:border top-7 w-[200px] bg-white max-h-[0px] group-hover:max-h-[999px] shadow-lg duration-300 overflow-hidden group-hover:p-3'>
                             {brandNames.map((brand) => (
                                 <Link to={`/brands/${brand.brandID}`}>
@@ -72,10 +72,10 @@ const Navbar = () => {
                         </div>
                     </div>
                     <Link to='/about' className=' h-full'>
-                        <p className={`font-overpass h-full cursor-pointer  hover:text-orange-400 ${isActive('/about') ? 'text-orange-600' : 'text-white'}`}>About</p>
+                        <p className={`font-overpass h-full cursor-pointer  hover:text-orange-400 ${isActive('/about') ? 'text-orange-600' : ''}`}>About</p>
                     </Link>
                     <Link to='/contact' className=' h-full'>
-                        <p className={`font-overpass h-full cursor-pointer  hover:text-orange-400 ${isActive('/contact') ? 'text-orange-600' : 'text-white'}`}>Contact</p>
+                        <p className={`font-overpass h-full cursor-pointer  hover:text-orange-400 ${isActive('/contact') ? 'text-orange-600' : ''}`}>Contact</p>
                     </Link>
                 </div>
             </div>
@@ -88,9 +88,9 @@ const Navbar = () => {
             </div>
             <div className='w-full h-full'>
                 <div className='w-full h-full flex items-center justify-end gap-4'>
-                    <FaUser className='text-white size-5 cursor-pointer hover:text-orange-400' />
-                    <FaCartShopping className='text-white size-5 cursor-pointer hover:text-orange-400' /> 
-                    <LuMenu onClick={toggleMenu} className='text-white size-6 cursor-pointer' /> 
+                    <FaUser className='size-5 cursor-pointer hover:text-orange-400' />
+                    <FaCartShopping className='size-5 cursor-pointer hover:text-orange-400' /> 
+                    <LuMenu onClick={toggleMenu} className='size-6 cursor-pointer' /> 
                 </div>
             </div>
         </div>
