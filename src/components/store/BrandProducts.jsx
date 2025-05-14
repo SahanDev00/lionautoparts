@@ -39,24 +39,6 @@ const BrandProducts = () => {
           });
     },[items])
 
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item?BrandID=${BrandID}`, {
-        headers: {
-          'APIKey' : process.env.REACT_APP_API_KEY
-        }
-      })
-
-      const sortedData = response.data.data.sort((a, b) =>
-        a.stockAvailable === 'A' ? -1 : b.stockAvailable === 'A' ? 1 : 0
-      );
-      setItems(sortedData);
-      
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleAddToCart = (item) => {
     addToCart({
       ...item,
@@ -74,6 +56,23 @@ const BrandProducts = () => {
   }, []);
   
   useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item?BrandID=${BrandID}`, {
+          headers: {
+            'APIKey' : process.env.REACT_APP_API_KEY
+          }
+        })
+  
+        const sortedData = response.data.data.sort((a, b) =>
+          a.stockAvailable === 'A' ? -1 : b.stockAvailable === 'A' ? 1 : 0
+        );
+        setItems(sortedData);
+        
+      } catch (err) {
+        console.log(err);
+      }
+    };
     fetchProducts();
   }, [BrandID])
 
