@@ -106,7 +106,9 @@ const Navbar = () => {
             <p className='font-overpass cursor-pointer hover:text-orange-400 text-xl mb-5 flex items-center gap-2' onClick={toggleBrand}>Brands <IoIosArrowDown className={`duration-300 ${isBrand && 'rotate-180'}`} /></p>
             <div className={`w-[300px] duration-300 overflow-hidden  ${isBrand ? 'max-h-[999px] mb-5' : 'max-h-[0px]'}`}>
                 {brandNames.map((brand) => (
-                    <p className='cursor-pointer font-overpass mb-1 hover:text-orange-400 ml-5'>{brand.brandName}</p>
+                    <Link to={`/brands/${brand.brandID}`} onClick={() => setIsMenu(false)}>
+                        <p className='cursor-pointer font-overpass mb-1 hover:text-orange-400 ml-5'>{brand.brandName}</p>
+                    </Link>
                 ))}
             </div>
             <Link to='about'>
