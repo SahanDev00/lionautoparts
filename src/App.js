@@ -12,6 +12,7 @@ import SignUpPage from "./pages/Account/SignUpPage";
 import LoginPage from "./pages/Account/LoginPage";
 import MyAccountPage from "./pages/Account/MyAccountPage";
 import CartIndex from "./components/Cart/CartIndex";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Footer />
         </Router>
       </ParallaxProvider>
+      <ToastContainer />
     </div>
   );
 }

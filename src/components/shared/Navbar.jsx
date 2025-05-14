@@ -7,7 +7,7 @@ import { LuMenu } from 'react-icons/lu'
 import { IoClose } from 'react-icons/io5'
 import { Link, useLocation } from 'react-router-dom'
 import axios from 'axios'
-
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
 
@@ -41,6 +41,8 @@ const Navbar = () => {
 
       fetchBrands();
     }, [])
+
+    const customerId = Cookies.get('customerId') || sessionStorage.getItem('customerId');
     
 
   return (
@@ -51,9 +53,15 @@ const Navbar = () => {
             </div>
             <div className='w-full h-full'>
                 <div className='w-full h-[45px] flex items-center justify-end gap-4'>
-                    <Link to='/login'>
-                        <FaUser className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/login') && 'text-orange-600'}`} />
-                    </Link>
+                    {!customerId ? (
+                        <Link to='/sign-up'>
+                            <FaUser className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/login') && 'text-orange-600'}`} />
+                        </Link>
+                    ) : (
+                        <Link to='/account'>
+                            <FaUser className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/login') && 'text-orange-600'}`} />
+                        </Link>
+                    )}
                     <Link to='/cart'>
                         <FaCartShopping className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/cart') ? 'text-orange-600' : ''}`} />
                     </Link>
