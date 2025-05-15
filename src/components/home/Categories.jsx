@@ -25,7 +25,7 @@ const Categories = () => {
         <div className='mt-4 w-[95%] sm:w-[90%] lg:w-[80%] 2xl:w-[60%] mx-auto grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 md:gap-7'>
             {categories.map((cat, index) => (
                 <div className={`w-full border-2 h-[200px] sm:h-[250px] border-orange-700 lg:h-[300px] flex flex-col items-center justify-center  cursor-pointer hover:scale-105 duration-300 ${index % 2 !== 0 ? 'bg-orange-700' : ''}`}>
-                    <img src="https://png.pngtree.com/png-vector/20240801/ourmid/pngtree-car-engine-combustion-chamber-details-png-image_13071708.png" className='w-[100px] sm:w-[150px] h-[100px] sm:h-[150px] object-cover' alt="" />
+                    <img src={`${process.env.REACT_APP_IMG_URL}/${cat.categoryMainID}.png` || ''} className='w-[100px] sm:w-[150px] h-[100px] sm:h-[150px] object-cover' alt="" />
                     <h1 className={`text-xl sm:text-2xl mt-4 font-semibold font-overpass ${index % 2 === 0 ? 'text-orange-700' : 'text-white'}`}>{cat.categoryMainName}</h1>
                 </div>
             ))}
