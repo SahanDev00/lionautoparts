@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
 
@@ -49,7 +50,9 @@ const Hero = () => {
                         <Parallax speed={20}>
                             <h1 className="text-white text-4xl md:text-5xl font-bold z-10 lg:w-[800px] leading-tight">{banner.title}</h1>
                             <p className='text-white text-lg md:text-xl z-10 lg:w-[900px] mt-4 leading-normal'>{banner.description}</p>
-                            <button className='px-4 py-3 rounded-2xl border-2 text-white mt-4 hover:border-orange-500 hover:text-orange-500 hover:backdrop-blur-md'>{banner.buttonName}</button>
+                            <Link to={banner.buttonLink}>
+                                <button className='px-4 py-3 rounded-2xl border-2 text-white mt-4 hover:border-orange-500 hover:text-orange-500 hover:backdrop-blur-md'>{banner.buttonName}</button>
+                            </Link>
                         </Parallax>
                     </div>
                 </div>

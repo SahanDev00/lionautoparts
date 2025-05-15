@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import logo from '../../images/logo.jpeg'
 import { FaUser } from 'react-icons/fa'
 import { FaCartShopping } from 'react-icons/fa6'
-import { IoIosArrowDown } from 'react-icons/io'
 import { LuMenu } from 'react-icons/lu'
 import { IoClose } from 'react-icons/io5'
 import { Link, useLocation } from 'react-router-dom'
-import axios from 'axios'
 import Cookies from 'js-cookie';
 
 const Navbar = () => {
 
     const [isMenu, setIsMenu] = useState(false);
-    const [isBrand, setIsBrand] = useState(false);
-    const [brandNames, setBrandNames] = useState([]);
     const location = useLocation();
 
     const isActive = (path) => {
@@ -24,24 +20,6 @@ const Navbar = () => {
         setIsMenu(!isMenu);
     }
 
-    const toggleBrand = () => {
-        setIsBrand(!isBrand);
-    }
-
-    useEffect(() => {
-      const fetchBrands = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/Brand`, {
-            headers: {
-                'APIKey' : process.env.REACT_APP_API_KEY
-            } 
-        })
-
-        setBrandNames(response.data.data);
-      }
-
-      fetchBrands();
-    }, [])
-
     const customerId = Cookies.get('customerId') || sessionStorage.getItem('customerId');
     
 
@@ -49,17 +27,19 @@ const Navbar = () => {
     <div className='w-full h-[60px] md:h-[80px] fixed z-40 bg-white backdrop-blur-sm shadow'>
         <div className='w-[90%] lg:w-[70%] hidden md:flex mx-auto h-full items-center justify-between'>
             <div className='w-[400px] h-full'>
-                <img src={logo} className='w-[80px] p-2 h-full rounded-full cursor-pointer' alt="" />
+                <Link to='/'>
+                    <img src={logo} className='w-[80px] p-2 h-full rounded-full cursor-pointer' alt="" />
+                </Link>
             </div>
             <div className='w-full h-full'>
                 <div className='w-full h-[45px] flex items-center justify-end gap-4'>
                     {!customerId ? (
                         <Link to='/sign-up'>
-                            <FaUser className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/login') && 'text-orange-600'}`} />
+                            <FaUser className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/login') || isActive('/sign-up') || isActive('/account') ? 'text-orange-600' : ''}`} />
                         </Link>
                     ) : (
                         <Link to='/account'>
-                            <FaUser className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/login') && 'text-orange-600'}`} />
+                            <FaUser className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/login') || isActive('/sign-up') || isActive('/account') ? 'text-orange-600' : ''}`} />
                         </Link>
                     )}
                     <Link to='/cart'>
@@ -109,24 +89,16 @@ const Navbar = () => {
 
         <div className={`w-screen h-screen px-6 flex flex-col md:hidden justify-center bg-white z-50 fixed top-0 duration-300 ${!isMenu ? '-left-[800px]' : 'left-0'}`}>
             <IoClose onClick={toggleMenu} className='size-7 cursor-pointer absolute top-3 right-3' />
-            <Link to='/'>
+            <Link to='/' onClick={toggleMenu}>
                 <p className={`font-overpass cursor-pointer text-xl mb-5 ${isActive('/') ? 'text-orange-600' : ''}`}>Home</p>
             </Link>
-            <Link to='/store'>
+            <Link to='/store' onClick={toggleMenu}>
                 <p className={`font-overpass cursor-pointer hover:text-orange-400 text-xl mb-5 ${isActive('/store') ? 'text-orange-600' : ''}`}>Store</p>
             </Link>
-            <p className='font-overpass cursor-pointer hover:text-orange-400 text-xl mb-5 flex items-center gap-2' onClick={toggleBrand}>Brands <IoIosArrowDown className={`duration-300 ${isBrand && 'rotate-180'}`} /></p>
-            <div className={`w-[300px] duration-300 overflow-hidden  ${isBrand ? 'max-h-[999px] mb-5' : 'max-h-[0px]'}`}>
-                {brandNames.map((brand) => (
-                    <Link to={`/brands/${brand.brandID}`} onClick={() => setIsMenu(false)}>
-                        <p className='cursor-pointer font-overpass mb-1 hover:text-orange-400 ml-5'>{brand.brandName}</p>
-                    </Link>
-                ))}
-            </div>
-            <Link to='about'>
+            <Link to='about' onClick={toggleMenu}>
                 <p className={`font-overpass cursor-pointer hover:text-orange-400 text-xl mb-5 ${isActive('/about') ? 'text-orange-600' : ''}`}>About</p>
             </Link>
-            <Link to='contact'>
+            <Link to='contact' onClick={toggleMenu}>
                 <p className={`font-overpass cursor-pointer hover:text-orange-400 text-xl mb-5 ${isActive('/contact') ? 'text-orange-600' : ''}`}>Contact</p>
             </Link>
         </div>

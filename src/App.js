@@ -13,6 +13,10 @@ import LoginPage from "./pages/Account/LoginPage";
 import MyAccountPage from "./pages/Account/MyAccountPage";
 import CartIndex from "./components/Cart/CartIndex";
 import { ToastContainer } from "react-toastify";
+import MyOrders from "./components/Orders/MyOrders";
+import OrderDetails from "./components/Orders/OrderDetails";
+import ProductView from "./components/store/ProductView";
+import Checkout from "./components/Cart/Checkout";
 
 function App() {
   return (
@@ -31,6 +35,10 @@ function App() {
             <Route path="/login" index element={<LoginPage />} />
             <Route path="/account" index element={<MyAccountPage />} />
             <Route path="/cart" index element={<CartIndex />} />
+            <Route path="/checkout" index element={<Checkout />} />
+            <Route path="/orders" index element={<MyOrders />} />
+            <Route path="/orders/:orderID" index element={<OrderDetails />} />
+            <Route path="/items/:itemID" index element={<ProductView />} />
           </Routes>
           <Footer />
         </Router>

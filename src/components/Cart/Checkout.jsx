@@ -180,9 +180,9 @@ const Checkout = () => {
   return (
     <div className='w-full mx-auto pt-[50px] min-h-screen'>
       <div className='w-full mx-auto'>
-        <div className='w-[85%] mx-auto h-[200px] md:h-[200px] flex flex-col justify-center'>
-            <h1 className='text-3xl sm:text-4xl md:text-5xl font-roboto font-semibold md:w-[700px]'>
-                Checkout. <span className='text-gray-500'>And Own Your Products.</span>
+        <div className='w-[85%] mx-auto h-[100px] md:h-[200px] flex flex-col justify-center'>
+            <h1 className='text-3xl sm:text-4xl md:text-5xl font-roboto font-semibold md:w-[700px] text-orange-700'>
+                Checkout.
             </h1>
         </div>
 

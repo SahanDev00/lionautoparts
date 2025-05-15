@@ -75,6 +75,21 @@ const SearchComponent = () => {
               handleNavigate();
             }} className='w-full sm:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto sm:h-[200px] flex flex-col items-center justify-center mt-4 sm:mt-8 bg-black/60 py-4 sm:py-0'>
           <div className='sm:flex items-center justify-center w-[90%] mx-auto sm:h-[100px]'>
+            {/* Brand Select */}
+            <div className='flex flex-col w-full sm:w-[30%] 2xl:w-[20%] mx-auto'>
+              <label htmlFor="" className='text-white font-overpass'>Select Brand</label>
+              <select
+                required
+                onChange={(e) => setBrandID(e.target.value)}
+                className='w-full mx-auto font-overpass border px-2 py-2 rounded-md cursor-pointer border-amber-500 font-light'
+              >
+                <option value="">-----</option>
+                {brands?.map((brand) => (
+                  <option key={brand.brandID} value={brand.brandID}>{brand.brandName}</option>
+                ))}
+              </select>
+            </div>
+            
             {/* Model Select */}
             <div className='flex flex-col w-full sm:w-[30%] 2xl:w-[20%] mx-auto mb-4 sm:mb-0'>
               <label htmlFor="" className='text-white font-overpass'>Select Model</label>
@@ -105,20 +120,6 @@ const SearchComponent = () => {
               </select>
             </div>
 
-            {/* Brand Select */}
-            <div className='flex flex-col w-full sm:w-[30%] 2xl:w-[20%] mx-auto'>
-              <label htmlFor="" className='text-white font-overpass'>Select Brand</label>
-              <select
-                required
-                onChange={(e) => setBrandID(e.target.value)}
-                className='w-full mx-auto font-overpass border px-2 py-2 rounded-md cursor-pointer border-amber-500 font-light'
-              >
-                <option value="">-----</option>
-                {brands?.map((brand) => (
-                  <option key={brand.brandID} value={brand.brandID}>{brand.brandName}</option>
-                ))}
-              </select>
-            </div>
           </div>
           <button type='submit' className='px-6 py-2 rounded-xl font-overpass border bg-orange-500 hover:bg-orange-600 duration-300 text-white mt-5 sm:mt-0'>Search</button>
         </form>
