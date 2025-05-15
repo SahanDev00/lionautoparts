@@ -7,3 +7,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes floatUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .float-up {
+    opacity: 1 !important;
+    animation: floatUp 0.4s ease-out forwards;
+  }

@@ -249,7 +249,7 @@ const AllProducts = () => {
 
 
   return (
-    <div className='w-full min-h-screen pt-[80px]'>
+    <div className='w-full min-h-screen md:pt-[80px]'>
             <div className='w-full mx-auto h-[200px] md:h-[300px] flex flex-col justify-center'>
               <img src="https://di-uploads-pod4.s3.amazonaws.com/titanautomotivegroup/uploads/2015/11/Car-Parts-2.jpg" className='w-full h-full object-cover' alt="" />
             </div>

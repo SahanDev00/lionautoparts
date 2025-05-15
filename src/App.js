@@ -17,6 +17,7 @@ import MyOrders from "./components/Orders/MyOrders";
 import OrderDetails from "./components/Orders/OrderDetails";
 import ProductView from "./components/store/ProductView";
 import Checkout from "./components/Cart/Checkout";
+import SearchQueryProducts from "./components/store/SearchQueryProducts";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/store" index element={<Store />} />
             <Route path="/brands/:BrandID" index element={<BrandProducts />} />
             <Route path="/search/:ModelID/:BrandID/:YearID" index element={<SearchProducts />} />
+            <Route path="/search/:q" index element={<SearchQueryProducts />} />
             <Route path="/about" index element={<About />} />
             <Route path="/contact" index element={<Contact />} />
             <Route path="/sign-up" index element={<SignUpPage />} />

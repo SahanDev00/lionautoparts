@@ -1,16 +1,20 @@
 import { useState } from 'react'
 import logo from '../../images/logo.jpeg'
-import { FaUser } from 'react-icons/fa'
+import { FaSearch, FaUser } from 'react-icons/fa'
 import { FaCartShopping } from 'react-icons/fa6'
 import { LuMenu } from 'react-icons/lu'
 import { IoClose } from 'react-icons/io5'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie';
 
 const Navbar = () => {
 
     const [isMenu, setIsMenu] = useState(false);
+    const [isSearch, setIsSearch] = useState(false);
     const location = useLocation();
+    const Navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState('');
+    const customerId = Cookies.get('customerId') || sessionStorage.getItem('customerId');
 
     const isActive = (path) => {
         return location.pathname === path;
@@ -20,7 +24,18 @@ const Navbar = () => {
         setIsMenu(!isMenu);
     }
 
-    const customerId = Cookies.get('customerId') || sessionStorage.getItem('customerId');
+    const toggleSearch = () => {
+        setIsSearch(!isSearch);
+    }
+
+
+      const handleSearch = () => {
+        if (searchQuery.trim()) {
+            Navigate(`/search/${searchQuery.trim()}`);
+            setSearchQuery('')
+            setIsSearch(false);
+        }
+    };
     
 
   return (
@@ -45,6 +60,7 @@ const Navbar = () => {
                     <Link to='/cart'>
                         <FaCartShopping className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/cart') ? 'text-orange-600' : ''}`} />
                     </Link>
+                    <FaSearch onClick={toggleSearch} className={`size-5 cursor-pointer hover:text-orange-400 ${isSearch ? 'text-orange-600' : ''}`}/>
                 </div>
                 <div className='w-full h-[30px] flex items-center justify-end gap-16'>
                     <Link to='/' className='h-full'>
@@ -73,15 +89,30 @@ const Navbar = () => {
             </div>
         </div>
 
+        {/* Searchbar */}
+        {isSearch && (
+            <form className={`w-[90%] sm:w-[80%] lg:w-[60%] xl:w-[50%] top-[70px] fixed left-0 right-0 inset-0 md:top-[90px] h-[50px] flex items-center justify-center z-50 mx-auto shadow-md rounded-lg overflow-hidden translate-y-4 transform float-up`}>
+                <input 
+                value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()} 
+                  type="text" className='w-[90%] h-full pl-4 bg-white border-orange-500' />
+                <button onClick={handleSearch} type='submit' className='w-[10%] h-full bg-orange-500 text-white flex items-center justify-center'><FaSearch /></button>
+            </form>
+        )}
+
         {/* mobile nav */}
         <div className='w-[90%] md:hidden flex mx-auto h-full items-center justify-between'>
             <div className='w-[100px] h-full'>
-                <img src={logo} className='w-[60px] p-2 sm:p-1 h-full rounded-full cursor-pointer' alt="" />
+                <Link to='/'>
+                    <img src={logo} className='w-[60px] p-2 sm:p-1 h-full rounded-full cursor-pointer' alt="" />
+                </Link>
             </div>
             <div className='w-full h-full'>
                 <div className='w-full h-full flex items-center justify-end gap-4'>
                     <FaUser className='size-5 cursor-pointer hover:text-orange-400' />
                     <FaCartShopping className='size-5 cursor-pointer hover:text-orange-400' /> 
+                    <FaSearch onClick={toggleSearch} className={`size-5 cursor-pointer md:hover:text-orange-400 ${isSearch ? 'text-orange-600' : ''}`}/>
                     <LuMenu onClick={toggleMenu} className='size-6 cursor-pointer' /> 
                 </div>
             </div>

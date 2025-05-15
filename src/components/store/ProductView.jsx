@@ -140,6 +140,9 @@ const ProductView = () => {
                     <p>No specifications available.</p>
                 )}
             </div>
+          <p className="text-lg font-semibold text-gray-500 font-karla">
+            <span className="text-gray-700">Part No:</span> {item.partNo}
+          </p>
           <p className="text-2xl font-semibold text-green-500 font-karla">
             Rs. {Number(item.retailPrice).toLocaleString('en-LK')}
           </p>
