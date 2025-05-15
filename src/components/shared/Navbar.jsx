@@ -96,7 +96,7 @@ const Navbar = () => {
                 value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()} 
-                  type="text" className='w-[90%] h-full pl-4 bg-white border-orange-500' />
+                  type="text" placeholder='Search...' className='w-[90%] h-full pl-4 bg-white border-orange-500' />
                 <button onClick={handleSearch} type='submit' className='w-[10%] h-full bg-orange-500 text-white flex items-center justify-center'><FaSearch /></button>
             </form>
         )}

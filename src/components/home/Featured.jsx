@@ -84,7 +84,7 @@ const Featured = () => {
                 <div className='w-full h-[300px] lg:h-[320px] p-2 hover:shadow-xl duration-300 drop-shadow-sm shadow flex flex-col items-center justify-center'>
                     <img className='w-full h-[180px] lg:h-[200px] object-contain' src={productImages[item.itemID] || 'https://media.istockphoto.com/id/1396814518/vector/image-coming-soon-no-photo-no-thumbnail-image-available-vector-illustration.jpg?s=612x612&w=0&k=20&c=hnh2OZgQGhf0b46-J2z7aHbIWwq8HNlSDaNp2wn_iko='} alt="" />
                     <h1 className='text-xl mt-2 line-clamp-1' title={item.itemName}>{item.itemName}</h1>
-                    <h1 className='mt-1'>Rs. {item.retailPrice}</h1>
+                    <h1 className='mt-1 text-orange-500'>Rs. {item.retailPrice}</h1>
                     <div className='flex mt-1 items-center justify-center gap-4'>
                         <Link to={`/items/${item.itemID}`}>
                             <FaSearch className='text-xl text-orange-500 cursor-pointer' title='more details'/>
