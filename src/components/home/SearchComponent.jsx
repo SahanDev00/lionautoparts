@@ -10,11 +10,12 @@ const SearchComponent = () => {
   const [brandID, setBrandID] = useState([]);
   const [modelID, setModelID] = useState([]);
   const [yearID, setYearID] = useState([]);
+  const [query, setQuery] = useState([]);
   const navigate = useNavigate();
 
 
   const handleNavigate = () => {
-    navigate(`/search/${modelID}/${brandID}/${yearID}`)
+    navigate(`/search/${modelID}/${brandID}/${yearID}/${query}`)
   }
 
   useEffect(() => {
@@ -118,6 +119,18 @@ const SearchComponent = () => {
                   <option key={year.yearID} value={year.yearID}>{year.yearName}</option>
                 ))}
               </select>
+            </div>
+
+            {/* Part Select */}
+            <div className='flex flex-col w-full sm:w-[30%] 2xl:w-[20%] mx-auto mb-4 sm:mb-0'>
+              <label htmlFor="" className='text-white font-overpass'>Part Number</label>
+              <input
+                required
+                type='text'
+                placeholder='Part No'
+                onChange={(e) => setQuery(e.target.value)}
+                className='w-full mx-auto font-overpass border px-2 py-2 rounded-md cursor-pointer border-amber-500 font-light'
+              />
             </div>
 
           </div>

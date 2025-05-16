@@ -29,7 +29,7 @@ function App() {
             <Route path="/" index element={<Home />} />
             <Route path="/store" index element={<Store />} />
             <Route path="/brands/:BrandID" index element={<BrandProducts />} />
-            <Route path="/search/:ModelID/:BrandID/:YearID" index element={<SearchProducts />} />
+            <Route path="/search/:ModelID/:BrandID/:YearID/:query" index element={<SearchProducts />} />
             <Route path="/search/:q" index element={<SearchQueryProducts />} />
             <Route path="/about" index element={<About />} />
             <Route path="/contact" index element={<Contact />} />

@@ -19,6 +19,18 @@ const AllProducts = () => {
   const [expandedCategory, setExpandedCategory] = useState(null);
   const { addToCart } = useCart(); 
 
+  const [brandID, setBrandID] = useState('')
+  const [modelID, setModelID] = useState('')
+  const [yearID, setYearID] = useState('')
+  const [partNo, setPartNo] = useState('')
+
+  const clearFilters = () => {
+    setBrandID('');
+    setModelID('');
+    setYearID('');
+    setPartNo('');
+  }
+
   const toggleCategory = (id) => {
     setExpandedCategory(prev => prev === id ? null : id);
   };
@@ -49,23 +61,26 @@ const AllProducts = () => {
           });
     },[items])
 
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item`, {
-        headers: {
-          'APIKey' : process.env.REACT_APP_API_KEY
-        }
-      })
+      useEffect(() => {
+        const fetchProducts = async () => {
+          try {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item?BrandID=${brandID}&ModelID=${modelID}&YearID=${yearID}&KeyW=${partNo}`, {
+              headers: {
+                'APIKey' : process.env.REACT_APP_API_KEY
+              }
+            })
 
-      const sortedData = response.data.data.sort((a, b) =>
-        a.stockAvailable === 'A' ? -1 : b.stockAvailable === 'A' ? 1 : 0
-      );
-      setItems(sortedData);
-      
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            const sortedData = response.data.data.sort((a, b) =>
+              a.stockAvailable === 'A' ? -1 : b.stockAvailable === 'A' ? 1 : 0
+            );
+            setItems(sortedData);
+            
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchProducts();
+    }, [brandID, modelID,yearID,partNo])
 
   const fetchCategories = async () => {
     try {
@@ -172,7 +187,7 @@ const AllProducts = () => {
     }
   };
 
-  const fetchBrandProducts = async (BrandID) => {
+  /*const fetchBrandProducts = async (BrandID) => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item?BrandID=${BrandID}`, {
           headers: {
@@ -222,7 +237,7 @@ const AllProducts = () => {
       } catch (err) {
         console.log(err);
       }
-    };
+    };*/
 
 
   const handleAddToCart = (item) => {
@@ -242,11 +257,9 @@ const AllProducts = () => {
   }, []);
   
   useEffect(() => {
-    fetchProducts();
     fetchCategories();
     fetchSubCategories();
   }, [])
-
 
   return (
     <div className='w-full min-h-screen md:pt-[80px]'>
@@ -261,24 +274,25 @@ const AllProducts = () => {
                 <h1 className='text-3xl font-roboto font-semibold'><span className='text-gray-600'>All</span> Products</h1>
               )}
               <div className='gap-3 flex mt-3 lg:mt-0 flex-wrap'>
-                <select onChange={(e) => fetchBrandProducts(e.target.value)} className='w-[200px] mt-3 md:mt-0 md:py-2 border font-karla p-1 md:px-2 cursor-pointer outline-none' name="subCats" id="subCats">
+                <select onChange={(e) => setBrandID(e.target.value)} className='w-[200px] mt-3 md:mt-0 md:py-2 border font-karla p-1 md:px-2 cursor-pointer outline-none' name="subCats" id="subCats">
                   <option value="">---filter by brands---</option>
                   {brands?.map((brand) => (
                     <option key={brand.brandID} value={brand.brandID}>{brand.brandName}</option>
                   ))}
                 </select>
-                <select onChange={(e) => fetchModelProducts(e.target.value)} className='w-[200px] mt-3 md:mt-0 md:py-2 border font-karla p-1 md:px-2 cursor-pointer outline-none' name="subCats" id="subCats">
+                <select onChange={(e) => setModelID(e.target.value)} className='w-[200px] mt-3 md:mt-0 md:py-2 border font-karla p-1 md:px-2 cursor-pointer outline-none' name="subCats" id="subCats">
                   <option value="">---filter by models---</option>
                   {models?.map((model) => (
                     <option key={model.brandID} value={model.modelID}>{model.modelName}</option>
                   ))}
                 </select>
-                <select onChange={(e) => fetchYearProducts(e.target.value)} className='w-[200px] mt-3 md:mt-0 md:py-2 border font-karla p-1 md:px-2 cursor-pointer outline-none' name="subCats" id="subCats">
+                <select onChange={(e) => setYearID(e.target.value)} className='w-[200px] mt-3 md:mt-0 md:py-2 border font-karla p-1 md:px-2 cursor-pointer outline-none' name="subCats" id="subCats">
                   <option value="">---filter by year---</option>
                   {years?.map((year) => (
                     <option key={year.yearID} value={year.yearID}>{year.yearName}</option>
                   ))}
                 </select>
+                <input onChange={(e) => setPartNo(e.target.value)} placeholder='Part Number...' className='w-[200px] mt-3 md:mt-0 md:py-2 border font-karla p-1 md:px-2 cursor-pointer outline-none' name="subCats" id="subCats" />
               </div>
             </div>
 
@@ -287,7 +301,7 @@ const AllProducts = () => {
                 <div className='w-full flex items-center justify-between'>
                   <h1 className='text-gray-700 font-semibold text-lg mb-2 font-karla'>Categories</h1>
                   {brandName && (
-                    <MdFilterAltOff className='cursor-pointer hover:text-red-500 size-5' title='Clear filters' onClick={() => {fetchProducts(); setBrandName('')}} />
+                    <MdFilterAltOff className='cursor-pointer hover:text-red-500 size-5' title='Clear filters' onClick={() => {clearFilters(); setBrandName('')}} />
                   )}
                   </div>
                 <hr />

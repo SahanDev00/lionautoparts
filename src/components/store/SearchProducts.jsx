@@ -10,7 +10,7 @@ const SearchProducts = () => {
   const [items, setItems] = useState([]);
   const [productImages, setProductImages] = useState({}); 
   const { addToCart } = useCart(); 
-  const {BrandID, ModelID, YearID} = useParams();
+  const {BrandID, ModelID, YearID, query} = useParams();
 
 
     const fetchImageData = async (itemID) => {
@@ -60,7 +60,7 @@ const SearchProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item?BrandID=${BrandID}&ModelID=${ModelID}&YearID=${YearID}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item?BrandID=${BrandID}&YearID=${YearID}&ModelID=${ModelID}&KeyW=${query}`, {
           headers: {
             'APIKey' : process.env.REACT_APP_API_KEY
           }
@@ -77,7 +77,7 @@ const SearchProducts = () => {
       }
     };
     fetchProducts();
-  }, [BrandID, ModelID, YearID])
+  }, [BrandID, ModelID, YearID, query])
 
 
   return (
