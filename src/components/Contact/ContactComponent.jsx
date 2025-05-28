@@ -24,7 +24,7 @@ const ContactComponent = () => {
 
     try {
       await axios.post('https://emailsender-production-22ea.up.railway.app/send-email', {
-        recipient: 'dumidus86@gmail.com', // or get this from config if needed,
+        recipient: 'info@lionautoparts.lk', // or get this from config if needed,
         formData,
         ApiURL: process.env.REACT_APP_API_URL,
         headers : {
