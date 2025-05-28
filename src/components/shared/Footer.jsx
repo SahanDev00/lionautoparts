@@ -38,8 +38,9 @@ const Footer = () => {
         {/* Contact + Socials */}
         <div>
           <h3 className="text-white font-semibold mb-3">Contact Us</h3>
-          <p className="text-sm mb-2">📍 123 Auto Street, Turbo City</p>
-          <p className="text-sm mb-2">📞 +1 800 555 1234</p>
+          <p className="text-sm mb-2">📍 NO.82A, Heraliyawala Industrial Zone, Malkaduwawa, Kurunegala.</p>
+          <p className="text-sm mb-2">📞 Phone: +94 77 91 57 910</p>
+          <p className="text-sm mb-2">📞 Whatsapp: +94 77 91 57 910</p>
           <p className="text-sm mb-4">✉️ support@autopartspro.com</p>
           <div className="flex gap-4">
             <a href="/" className="text-yellow-400 hover:text-white"><FaFacebookF /></a>
