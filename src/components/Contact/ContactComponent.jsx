@@ -55,7 +55,7 @@ const ContactComponent = () => {
             <p><span className="font-semibold">📍 Address:</span> NO.82A, Heraliyawala Industrial Zone, Malkaduwawa, Kurunegala.</p>
             <p><span className="font-semibold">📞 Phone:</span> +94 77 91 57 910</p>
             <p><span className="font-semibold">📞 Whatsapp:</span> +94 77 91 57 910</p>
-            <p><span className="font-semibold">✉️ Email:</span> support@lionautoparts.lk</p>
+            <p><span className="font-semibold">✉️ Email:</span> info@lionautoparts.lk</p>
             <p><span className="font-semibold">🕒 Hours:</span> Mon–Sat: 9AM – 6PM</p>
           </div>
 

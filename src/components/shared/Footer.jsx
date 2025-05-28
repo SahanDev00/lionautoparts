@@ -41,7 +41,7 @@ const Footer = () => {
           <p className="text-sm mb-2">📍 NO.82A, Heraliyawala Industrial Zone, Malkaduwawa, Kurunegala.</p>
           <p className="text-sm mb-2">📞 Phone: +94 77 91 57 910</p>
           <p className="text-sm mb-2">📞 Whatsapp: +94 77 91 57 910</p>
-          <p className="text-sm mb-4">✉️ support@autopartspro.com</p>
+          <p className="text-sm mb-4">✉️ info@lionautoparts.lk</p>
           <div className="flex gap-4">
             <a href="/" className="text-yellow-400 hover:text-white"><FaFacebookF /></a>
             <a href="/" className="text-yellow-400 hover:text-white"><FaInstagram /></a>
