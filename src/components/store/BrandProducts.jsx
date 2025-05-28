@@ -84,7 +84,7 @@ const BrandProducts = () => {
             </div>
 
             <div className='w-[90%] 2xl:w-[85%] mx-auto md:flex justify-between pb-10 mt-10'>      
-              <div className='w-full md:w-[70%] lg:w-[80%] mx-auto md:mx-0 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 2xl:gap-8 pb-10'>
+              <div className='w-full mx-auto md:mx-0 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 2xl:gap-8 pb-10'>
                 {items.length > 0 ? 
                   items.map((item, index) => (
                     <div key={index} className='w-full h-[400px] border-orange-300 border mx-auto lg:h-[450px] flex flex-col items-center justify-center rounded-xl bg-white shadow hover:shadow-lg hover:scale-[102%] duration-300'>

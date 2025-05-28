@@ -18,6 +18,7 @@ import OrderDetails from "./components/Orders/OrderDetails";
 import ProductView from "./components/store/ProductView";
 import Checkout from "./components/Cart/Checkout";
 import SearchQueryProducts from "./components/store/SearchQueryProducts";
+import CategoryProducts from "./components/store/CategoryProducts";
 
 function App() {
   return (
@@ -27,20 +28,21 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" index element={<Home />} />
-            <Route path="/store" index element={<Store />} />
-            <Route path="/brands/:BrandID" index element={<BrandProducts />} />
-            <Route path="/search/:ModelID/:BrandID/:YearID/:query" index element={<SearchProducts />} />
-            <Route path="/search/:q" index element={<SearchQueryProducts />} />
-            <Route path="/about" index element={<About />} />
-            <Route path="/contact" index element={<Contact />} />
-            <Route path="/sign-up" index element={<SignUpPage />} />
-            <Route path="/login" index element={<LoginPage />} />
-            <Route path="/account" index element={<MyAccountPage />} />
-            <Route path="/cart" index element={<CartIndex />} />
-            <Route path="/checkout" index element={<Checkout />} />
-            <Route path="/orders" index element={<MyOrders />} />
-            <Route path="/orders/:orderID" index element={<OrderDetails />} />
-            <Route path="/items/:itemID" index element={<ProductView />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/brands/:BrandID" element={<BrandProducts />} />
+            <Route path="/search/:ModelID/:BrandID/:YearID/:query" element={<SearchProducts />} />
+            <Route path="/search/:q" element={<SearchQueryProducts />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/account" element={<MyAccountPage />} />
+            <Route path="/cart" element={<CartIndex />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/orders" element={<MyOrders />} />
+            <Route path="/orders/:orderID" element={<OrderDetails />} />
+            <Route path="/items/:itemID" element={<ProductView />} />
+            <Route path="/items/categories/:CategoryID" element={<CategoryProducts />} />
           </Routes>
           <Footer />
         </Router>

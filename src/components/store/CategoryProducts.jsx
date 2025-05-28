@@ -5,12 +5,12 @@ import { Link, useParams } from 'react-router-dom';
 import { useCart } from '../Cart/CartContext';
 import { toast } from 'react-toastify';
 
-const SearchQueryProducts = () => {
+const CategoryProducts = () => {
 
   const [items, setItems] = useState([]);
   const [productImages, setProductImages] = useState({}); 
   const { addToCart } = useCart(); 
-  const {q} = useParams();
+  const {CategoryID} = useParams();
 
 
     const fetchImageData = async (itemID) => {
@@ -39,8 +39,6 @@ const SearchQueryProducts = () => {
           });
     },[items])
 
-
-
   const handleAddToCart = (item) => {
     addToCart({
       ...item,
@@ -60,7 +58,7 @@ const SearchQueryProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item?KeyW=${q}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/Item?CategoryMainID=${CategoryID}`, {
           headers: {
             'APIKey' : process.env.REACT_APP_API_KEY
           }
@@ -70,14 +68,13 @@ const SearchQueryProducts = () => {
           a.stockAvailable === 'A' ? -1 : b.stockAvailable === 'A' ? 1 : 0
         );
         setItems(sortedData);
-        console.log(response)
         
       } catch (err) {
         console.log(err);
       }
     };
     fetchProducts();
-  }, [q])
+  }, [CategoryID])
 
 
   return (
@@ -128,4 +125,4 @@ const SearchQueryProducts = () => {
   )
 }
 
-export default SearchQueryProducts
+export default CategoryProducts
