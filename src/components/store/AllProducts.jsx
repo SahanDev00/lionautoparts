@@ -355,13 +355,16 @@ const AllProducts = () => {
                           <Link to={`/items/${item.itemID}`}>
                             <button className='px-4 lg:px-6 py-1 lg:py-2 border rounded-full bg-orange-500 text-white hover:bg-orange-500/90 font-karla'>Learn More</button>
                           </Link>
-                          <BsCartPlus
-                            onClick={(e) => {
-                              e.preventDefault(); // Prevents navigation
-                              e.stopPropagation(); // Stops event bubbling to the Link
-                              handleAddToCart(item);
-                            }}
-                          className='text-orange-500 text-2xl hover:text-orange-700' title='add to cart' />
+                                                   {/* 
+                            <BsCartPlus
+                                onClick={(e) => {
+                                  e.preventDefault(); // Prevents navigation
+                                  e.stopPropagation(); // Stops event bubbling to the Link
+                                  handleAddToCart(item);
+                                }}
+                              className='text-orange-500 text-2xl hover:text-orange-700' title='add to cart' />
+                            </div>
+                          */}
                         </div>
                       ) : (
                         <div className='flex items-center h-[50px] justify-center gap-5 mt-2'>

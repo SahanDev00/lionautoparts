@@ -155,6 +155,7 @@ const ProductView = () => {
             {item.stockAvailable === 'A' ? "" : "Out of Stock"}
           </p>
 
+        {/*
           {item.stockAvailable === 'A' && (
             <button
               onClick={(e) => {
@@ -166,7 +167,8 @@ const ProductView = () => {
               <FaShoppingCart />
               Add to Cart
             </button>
-          )}
+            )}
+            */}
         </div>
       </div>
     </div>

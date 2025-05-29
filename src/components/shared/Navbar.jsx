@@ -40,14 +40,16 @@ const Navbar = () => {
 
   return (
     <div className='w-full h-[60px] md:h-[80px] fixed z-40 bg-white backdrop-blur-sm shadow'>
-        <div className='w-[90%] lg:w-[70%] hidden md:flex mx-auto h-full items-center justify-between'>
-            <div className='w-[400px] h-full'>
+        <div className='w-[90%] lg:w-[80%] xl:w-[70%] hidden md:flex mx-auto h-full items-center justify-between'>
+            <div className='w-[400px] h-full flex items-center'>
                 <Link to='/'>
                     <img src={logo} className='w-[80px] p-2 h-full rounded-full cursor-pointer' alt="" />
                 </Link>
+                <p className='text-lg lg:text-xl 2xl:text-2xl ml-3 bg-clip-text bg-gradient-to-r text-transparent from-orange-500 to-orange-700 font-bold font-karla'>LION AUTO PARTS</p>
             </div>
             <div className='w-full h-full'>
                 <div className='w-full h-[45px] flex items-center justify-end gap-4'>
+                {/*
                     {!customerId ? (
                         <Link to='/sign-up'>
                             <FaUser className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/login') || isActive('/sign-up') || isActive('/account') ? 'text-orange-600' : ''}`} />
@@ -61,6 +63,7 @@ const Navbar = () => {
                         <FaCartShopping className={`size-5 cursor-pointer hover:text-orange-400 ${isActive('/cart') ? 'text-orange-600' : ''}`} />
                     </Link>
                     <FaSearch onClick={toggleSearch} className={`size-5 cursor-pointer hover:text-orange-400 ${isSearch ? 'text-orange-600' : ''}`}/>
+                    */}
                 </div>
                 <div className='w-full h-[30px] flex items-center justify-end gap-16'>
                     <Link to='/' className='h-full'>
@@ -103,19 +106,22 @@ const Navbar = () => {
 
         {/* mobile nav */}
         <div className='w-[90%] md:hidden flex mx-auto h-full items-center justify-between'>
-            <div className='w-[100px] h-full'>
+            <div className='w-[600px] sm:w-[400px] h-full flex items-center'>
                 <Link to='/'>
                     <img src={logo} className='w-[60px] p-2 sm:p-1 h-full rounded-full cursor-pointer' alt="" />
                 </Link>
+                <p className='sm:text-lg lg:text-xl 2xl:text-2xl ml-3 bg-clip-text bg-gradient-to-r text-transparent from-orange-500 to-orange-700 font-bold font-karla'>LION AUTO PARTS</p>
             </div>
-            <div className='w-full h-full'>
-                <div className='w-full h-full flex items-center justify-end gap-4'>
-                    <FaUser className='size-5 cursor-pointer hover:text-orange-400' />
-                    <FaCartShopping className='size-5 cursor-pointer hover:text-orange-400' /> 
-                    <FaSearch onClick={toggleSearch} className={`size-5 cursor-pointer md:hover:text-orange-400 ${isSearch ? 'text-orange-600' : ''}`}/>
-                    <LuMenu onClick={toggleMenu} className='size-6 cursor-pointer' /> 
+                <div className='w-full h-full'>
+                    <div className='w-full h-full flex items-center justify-end gap-4'>
+            {/*
+                        <FaUser className='size-5 cursor-pointer hover:text-orange-400' />
+                        <FaCartShopping className='size-5 cursor-pointer hover:text-orange-400' /> 
+                        <FaSearch onClick={toggleSearch} className={`size-5 cursor-pointer md:hover:text-orange-400 ${isSearch ? 'text-orange-600' : ''}`}/>
+                        */}
+                        <LuMenu onClick={toggleMenu} className='size-6 cursor-pointer' /> 
+                    </div>
                 </div>
-            </div>
         </div>
 
         <div className={`w-screen h-screen px-6 flex flex-col md:hidden justify-center bg-white z-50 fixed top-0 duration-300 ${!isMenu ? '-left-[800px]' : 'left-0'}`}>
