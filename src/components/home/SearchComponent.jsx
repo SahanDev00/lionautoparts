@@ -67,7 +67,7 @@ const SearchComponent = () => {
     }, [])
 
   return (
-    <div className='w-screen overflow-hidden h-[500px] sm:h-[350px] relative bg-black'>
+    <div className='w-screen overflow-hidden h-[600px] sm:h-[350px] relative bg-black'>
       <img className='w-full h-full object-cover opacity-70' src="https://images.unsplash.com/photo-1635974069895-7a6d887f9106?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
       <div className='flex flex-col items-center justify-center h-full absolute z-20 inset-0'>
         <h1 className='text-3xl sm:text-4xl w-[95%] font-overpass text-white font-semibold text-center'>Search From Over 10,000,000 Auto Parts, & Get Shipped Directly To You</h1>
