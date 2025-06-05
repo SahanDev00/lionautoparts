@@ -146,7 +146,7 @@ const ProductView = () => {
           <p className="text-2xl font-semibold text-green-500 font-karla">
             Rs. {Number(item.retailPrice).toLocaleString('en-LK')}
           </p>
-          {/* Stock Availability */}
+          {/* Stock Availability 
           <p
             className={`font-roboto ${
               item.stockAvailable === 'A' ? "" : "text-red-500"
@@ -154,7 +154,7 @@ const ProductView = () => {
           >
             {item.stockAvailable === 'A' ? "" : "Out of Stock"}
           </p>
-
+          */}
         {/*
           {item.stockAvailable === 'A' && (
             <button

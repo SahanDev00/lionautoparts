@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Categories = () => {
 
-    const [categories, setCategories] = useState([]);
+    // const [categories, setCategories] = useState([]);
 
-    useEffect(() => {
+    /* useEffect(() => {
       const fetchCategories = async () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/CategoryMain`, {
             headers: { 
@@ -17,8 +17,34 @@ const Categories = () => {
         setCategories(response.data.data.slice(0, 6))
       }
       fetchCategories();
-    }, [])
+    }, []) */
     
+    const categories = [
+      {
+        categoryMainID: 'CTM_0016',
+        categoryMainName: 'A/C'
+      },
+      {
+        categoryMainID: 'CTM_0012',
+        categoryMainName: 'Engine'
+      },
+      {
+        categoryMainID: 'CTM_0014',
+        categoryMainName: 'Brake'
+      },
+      {
+        categoryMainID: 'CAT0009',
+        categoryMainName: 'Electrical'
+      },
+      {
+        categoryMainID: 'CTM_0002',
+        categoryMainName: 'Body Parts'
+      },
+      {
+        categoryMainID: 'CTM_0013',
+        categoryMainName: 'Interior'
+      },
+    ]
 
   return (
     <div className='w-full pt-5 pb-10 bg-gray-50'>
@@ -26,7 +52,7 @@ const Categories = () => {
         <div className='mt-4 w-[95%] sm:w-[90%] lg:w-[80%] 2xl:w-[60%] mx-auto grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 md:gap-7'>
             {categories.map((cat, index) => (
                 <Link to={`/items/categories/${cat.categoryMainID}`} className={`w-full border-2 h-[200px] sm:h-[250px] border-orange-700 lg:h-[300px] flex flex-col items-center justify-center  cursor-pointer hover:scale-105 duration-300 ${index % 2 !== 0 ? 'bg-orange-700' : ''}`}>
-                    <img src={`https://lionautoparts.lk/uploads/${cat.categoryMainID}.png?v=${Date.now()}` || ''} className='w-[100px] sm:w-[150px] h-[100px] sm:h-[150px] object-cover' alt="" />
+                    <img src={`https://lionautoparts.lk/uploads/${cat.categoryMainID}.png?v=${Date.now()}` || ''} className='w-[120px] sm:w-[170px] h-[100px] sm:h-[150px] object-contain' alt="" />
                     <h1 className={`text-xl sm:text-2xl mt-4 font-semibold font-overpass ${index % 2 === 0 ? 'text-orange-700' : 'text-white'}`}>{cat.categoryMainName}</h1>
                 </Link>
             ))}

@@ -93,29 +93,11 @@ const BrandProducts = () => {
                       <p className='font-semibold mt-1 font-karla text-[16px] lg:text-lg text-orange-600'>
                         Rs. {Number(item.retailPrice).toLocaleString('en-LK')}
                       </p>
-                      {item.stockAvailable === 'A' ? (
-                        <div className='flex items-center h-[50px] justify-center gap-5 mt-2'>
+                      <div className='flex items-center h-[50px] justify-center gap-5 mt-2'>
                           <Link to={`/items/${item.itemID}`}>
                             <button className='px-4 lg:px-6 py-1 lg:py-2 border rounded-full bg-orange-500 text-white hover:bg-orange-500/90 font-karla'>Learn More</button>
-                          </Link>
-                          {/* 
-                            <BsCartPlus
-                                onClick={(e) => {
-                                  e.preventDefault(); // Prevents navigation
-                                  e.stopPropagation(); // Stops event bubbling to the Link
-                                  handleAddToCart(item);
-                                }}
-                              className='text-orange-500 text-2xl hover:text-orange-700' title='add to cart' />
-                              */}
-                            </div>
-                      ) : (
-                        <div className='flex items-center h-[50px] justify-center gap-5 mt-2'>
-                          <Link to={`/items/${item.itemID}`}>
-                            <button className='px-4 lg:px-6 py-1 lg:py-2 border rounded-full bg-orange-500 text-white hover:bg-orange-500/90 font-karla'>Learn More</button>
-                          </Link>
-                          <button className='px-4 lg:px-6 py-1 lg:py-2 rounded-full text-red-500 font-karla cursor-not-allowed'>Out of Stock</button>
-                        </div>
-                      )}
+                          </Link>      
+                      </div>
                     </div>
                   )) : (
                     <p className='text-gray-700 font-karla'>No Items Available</p>

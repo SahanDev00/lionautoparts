@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+>
+
+  <url>
+    <loc>https://www.lionautoparts.lk/</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/store</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/about</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/contact</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/sign-up</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/login</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/account</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/cart</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/checkout</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/orders</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/orders/:orderID</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/items/ITM_00007</loc>
+  </url>
+  <url>
+    <loc>https://www.lionautoparts.lk/items/categories/CTM_0016</loc>
+  </url>
+</urlset>
